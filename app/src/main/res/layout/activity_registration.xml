@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:text="Registration"
+        android:text="@string/registration"
         android:textAlignment="center"
         android:textColor="#673AB7"
         android:textSize="48dp" />
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Enter email"
+        android:hint="@string/enter_email"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Enter password"
+        android:hint="@string/enter_password"
         android:inputType="textPassword" />
 
     <EditText
@@ -44,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Enter your first name"
+        android:hint="@string/enter_your_first_name"
         android:inputType="textPersonName" />
 
     <EditText
@@ -52,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:hint="Enter your Second name"
+        android:hint="@string/enter_your_second_name"
         android:inputType="textPersonName" />
 
     <Button
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/buttonSignUp"
         android:layout_margin="8dp"
-        android:text="Sign Up"/>
+        android:text="@string/sign_up"/>
 
 </LinearLayout>
 
