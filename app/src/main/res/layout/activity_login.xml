@@ -11,20 +11,19 @@
 
     <TextView
         android:id="@+id/textViewTitle"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textAlignment="center"
-        android:textColor="@color/material_dynamic_primary30"
+        android:textColor="#673AB7"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/editTextEmail"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your email"
         android:inputType="textEmailAddress"
@@ -37,7 +36,7 @@
 
     <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your password"
         android:inputType="textPassword"
@@ -61,8 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot password"
-        android:textAlignment="center"
-        android:textColor="@color/material_dynamic_primary30"
+        android:textColor="#673AB7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:padding="8dp"
@@ -73,8 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register"
-        android:textAlignment="center"
-        android:textColor="@color/material_dynamic_primary30"
+        android:textColor="#673AB7"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />

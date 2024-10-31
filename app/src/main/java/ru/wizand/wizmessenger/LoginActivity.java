@@ -1,5 +1,6 @@
 package ru.wizand.wizmessenger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //launch intent for register
+                Intent intent = RegistrationActivity.newIntent(LoginActivity.this);
+                startActivity(intent);
 
             }
         });
