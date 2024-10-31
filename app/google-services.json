@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "921435313141",
+    "project_id": "wizmessenger-4d052",
+    "storage_bucket": "wizmessenger-4d052.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921435313141:android:1e92e73080ec4baf7746bc",
+        "android_client_info": {
+          "package_name": "ru.wizand.wizmessenger"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-eRQJFwtjiyTN2vyKM_k1inOlYDh7ITk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
