@@ -1,8 +1,5 @@
 package ru.wizand.wizmessenger;
 
-import android.util.Log;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -22,10 +19,7 @@ public class UsersViewModel extends ViewModel{
         auth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if (firebaseAuth.getCurrentUser() == null) {
                     user.setValue(firebaseAuth.getCurrentUser());
-
-                }
             }
         });
     }
@@ -36,6 +30,10 @@ public class UsersViewModel extends ViewModel{
 
     public void logout() {
         auth.signOut();
+    }
+
+    public void signUp() {
+
     }
 
 
