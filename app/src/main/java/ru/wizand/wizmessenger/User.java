@@ -26,7 +26,20 @@ public class User {
         return lastName;
     }
 
+    public User() {
+    }
+
     public boolean isOnline() {
         return isOnline;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", isOnline=" + isOnline +
+                '}';
     }
 }
