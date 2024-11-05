@@ -48,7 +48,8 @@ public class RegistrationViewModel extends ViewModel {
             String email,
             String password,
             String name,
-            String lastName
+            String lastName,
+            int age
     ) {
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -62,6 +63,7 @@ public class RegistrationViewModel extends ViewModel {
                                 firebaseUser.getUid(),
                                 name,
                                 lastName,
+                                age,
                                 false
                         );
                         usersReference.child(user.getId()).setValue(user);
@@ -75,6 +77,7 @@ public class RegistrationViewModel extends ViewModel {
                 });
     }
 }
+
 
 
 

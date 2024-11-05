@@ -60,7 +60,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     private void initViews() {
         editTextEmail = findViewById(R.id.editTextEmail);
-        buttonResetPassword = findViewById(R.id.buttonResetYourPassword);
+        buttonResetPassword = findViewById(R.id.buttonResetPassword);
     }
 
     public static Intent newIntent(Context context, String email) {

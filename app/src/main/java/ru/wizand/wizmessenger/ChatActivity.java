@@ -129,3 +129,12 @@ public class ChatActivity extends AppCompatActivity {
         return intent;
     }
 }
+
+
+
+
+
+
+
+
+

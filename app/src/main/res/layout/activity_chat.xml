@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#10000099"
@@ -12,34 +11,32 @@
         android:id="@+id/textViewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Chat's name"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
         android:background="@android:color/holo_purple"
         android:padding="16dp"
-        />
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="John Smith" />
 
     <View
         android:id="@+id/onlineStatus"
         android:layout_width="12dp"
         android:layout_height="12dp"
         android:layout_margin="16dp"
-        android:background="@drawable/circle_green"
+        app:layout_constraintBottom_toBottomOf="@id/textViewTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewTitle"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewTitle"
-        />
+        app:layout_constraintTop_toTopOf="@id/textViewTitle"
+        tools:background="@drawable/circle_green" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewMessages"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/editTextMessage"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
-        tools:listitem="@layout/my_message_item"/>
+        app:layout_constraintBottom_toTopOf="@id/editTextMessage"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle"
+        tools:listitem="@layout/my_message_item" />
 
     <EditText
         android:id="@+id/editTextMessage"
@@ -49,12 +46,11 @@
         android:hint="@string/type_your_message"
         android:inputType="textMultiLine"
         android:paddingStart="16dp"
-        android:paddingBottom="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="48dp"
-        tools:text="very very very very very very very very very very very very very very ling text"
+        android:paddingBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        tools:text="Long long long long long long long long long long long long long long long long long long long" />
 
     <ImageView
         android:id="@+id/imageViewSendMessage"
@@ -63,8 +59,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/editTextMessage"
         app:layout_constraintEnd_toEndOf="@+id/editTextMessage"
         app:layout_constraintTop_toTopOf="@id/editTextMessage"
-        app:tint="@android:color/holo_purple"
-        app:srcCompat="@android:drawable/ic_menu_send" />
-
+        app:srcCompat="@android:drawable/ic_menu_send"
+        app:tint="@android:color/holo_purple" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

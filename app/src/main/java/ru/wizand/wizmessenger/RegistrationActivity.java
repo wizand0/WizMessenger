@@ -20,6 +20,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText editTextPassword;
     private EditText editTextName;
     private EditText editTextLastName;
+    private EditText editTextAge;
     private Button buttonSignUp;
 
     private RegistrationViewModel viewModel;
@@ -38,8 +39,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 String password = getTrimmedValue(editTextPassword);
                 String name = getTrimmedValue(editTextName);
                 String lastName = getTrimmedValue(editTextLastName);
-
-                viewModel.signUp(email, password, name, lastName);
+                int age = Integer.parseInt(getTrimmedValue(editTextAge));
+                viewModel.signUp(email, password, name, lastName, age);
             }
         });
     }
@@ -69,7 +70,8 @@ public class RegistrationActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextName = findViewById(R.id.editTextName);
-        editTextLastName = findViewById(R.id.editTextSurname);
+        editTextLastName = findViewById(R.id.editTextLastName);
+        editTextAge = findViewById(R.id.editTextAge);
         buttonSignUp = findViewById(R.id.buttonSignUp);
     }
 
