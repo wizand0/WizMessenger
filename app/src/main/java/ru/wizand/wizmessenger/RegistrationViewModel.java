@@ -16,7 +16,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RegistrationViewModel extends ViewModel {
 
     private FirebaseAuth auth;
-
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference usersReference;
 
@@ -28,11 +27,13 @@ public class RegistrationViewModel extends ViewModel {
         auth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                user.setValue(firebaseAuth.getCurrentUser());
+                if (firebaseAuth.getCurrentUser() != null) {
+                    user.setValue(firebaseAuth.getCurrentUser());
+                }
             }
         });
         firebaseDatabase = FirebaseDatabase.getInstance();
-        usersReference = firebaseDatabase.getReference("users");
+        usersReference = firebaseDatabase.getReference("Users");
     }
 
     public LiveData<String> getError() {
@@ -57,21 +58,28 @@ public class RegistrationViewModel extends ViewModel {
                         if (firebaseUser == null) {
                             return;
                         }
-                            User user = new User(
-                                    firebaseUser.getUid(),
-                                    name,
-                                    lastName,
-                                    false
-                                    );
-                            usersReference.child(user.getId()).setValue(user);
-
+                        User user = new User(
+                                firebaseUser.getUid(),
+                                name,
+                                lastName,
+                                false
+                        );
+                        usersReference.child(user.getId()).setValue(user);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                error.setValue(e.getMessage());
-            }
-        });
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        error.setValue(e.getMessage());
+                    }
+                });
     }
 }
+
+
+
+
+
+
+
+

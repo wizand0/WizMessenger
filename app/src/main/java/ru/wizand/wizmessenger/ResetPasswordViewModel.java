@@ -16,6 +16,14 @@ public class ResetPasswordViewModel extends ViewModel {
     private MutableLiveData<String> error = new MutableLiveData<>();
     private MutableLiveData<Boolean> success = new MutableLiveData<>();
 
+    public LiveData<String> getError() {
+        return error;
+    }
+
+    public LiveData<Boolean> isSuccess() {
+        return success;
+    }
+
     public void resetPassword(String email) {
         auth.sendPasswordResetEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
@@ -28,13 +36,5 @@ public class ResetPasswordViewModel extends ViewModel {
                 error.setValue(e.getMessage());
             }
         });
-    }
-
-    public LiveData<String> getError() {
-        return error;
-    }
-
-    public LiveData<Boolean> getSuccess() {
-        return success;
     }
 }

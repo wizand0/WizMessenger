@@ -3,7 +3,7 @@ package ru.wizand.wizmessenger;
 public class Message {
 
     private String text;
-    private  String senderId;
+    private String senderId;
     private String receiverId;
 
     public Message(String text, String senderId, String receiverId) {

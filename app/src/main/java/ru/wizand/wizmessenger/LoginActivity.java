@@ -20,7 +20,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextEmail;
     private EditText editTextPassword;
     private Button buttonLogin;
-    private TextView textViewForgotPass;
+    private TextView textViewForgotPassword;
     private TextView textViewRegister;
 
     private LoginViewModel viewModel;
@@ -29,45 +29,36 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        InitViews();
+        initViews();
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         observeViewModel();
         setupClickListeners();
-
     }
 
     private void setupClickListeners() {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 String email = editTextEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
                 viewModel.login(email, password);
-
-                //Login
-                viewModel.login(email, password);
             }
         });
-        textViewForgotPass.setOnClickListener(new View.OnClickListener() {
+        textViewForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                //launch intent for forgot pass
+            public void onClick(View v) {
                 Intent intent = ResetPasswordActivity.newIntent(
                         LoginActivity.this,
                         editTextEmail.getText().toString().trim()
                 );
                 startActivity(intent);
-
             }
         });
-
         textViewRegister.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                //launch intent for register
+            public void onClick(View v) {
                 Intent intent = RegistrationActivity.newIntent(LoginActivity.this);
                 startActivity(intent);
-
             }
         });
     }
@@ -93,16 +84,15 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void InitViews() {
+    private void initViews() {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
-        textViewForgotPass = findViewById(R.id.textViewForgotPass);
+        textViewForgotPassword = findViewById(R.id.textViewForgotPass);
         textViewRegister = findViewById(R.id.textViewRegister);
     }
 
     public static Intent newIntent(Context context) {
         return new Intent(context, LoginActivity.class);
     }
-
 }

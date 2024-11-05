@@ -38,12 +38,7 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
         } else {
             layoutResId = R.layout.other_message_item;
         }
-
-
-        View view = LayoutInflater.from(parent.getContext()).inflate(
-                layoutResId,
-                parent,
-                false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(layoutResId, parent, false);
         return new MessageViewHolder(view);
     }
 
@@ -55,14 +50,12 @@ public class MessagesAdapter extends RecyclerView.Adapter<MessagesAdapter.Messag
         } else {
             return VIEW_TYPE_OTHER_MESSAGE;
         }
-
     }
 
     @Override
     public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
         Message message = messages.get(position);
         holder.textViewMessage.setText(message.getText());
-
     }
 
     @Override

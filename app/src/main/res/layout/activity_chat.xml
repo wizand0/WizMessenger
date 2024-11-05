@@ -62,7 +62,7 @@
         android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/editTextMessage"
         app:layout_constraintEnd_toEndOf="@+id/editTextMessage"
-        app:layout_constraintTop_toTopf="@+id/editTextMessage"
+        app:layout_constraintTop_toTopOf="@id/editTextMessage"
         app:tint="@android:color/holo_purple"
         app:srcCompat="@android:drawable/ic_menu_send" />
 

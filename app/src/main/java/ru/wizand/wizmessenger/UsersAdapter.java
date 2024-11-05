@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersAdapter extends  RecyclerView.Adapter<UsersAdapter.UserViewHolder>{
+public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHolder> {
 
     private List<User> users = new ArrayList<>();
 
@@ -38,7 +38,7 @@ public class UsersAdapter extends  RecyclerView.Adapter<UsersAdapter.UserViewHol
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User user = users.get(position);
-        String userInfo = String.format("%s %s", user.getName(), user.getLastName());
+        String userInfo = String.format("%s %s, %s", user.getName(), user.getLastName());
         holder.textViewUserInfo.setText(userInfo);
         int bgResId;
         if (user.isOnline()) {
@@ -47,16 +47,15 @@ public class UsersAdapter extends  RecyclerView.Adapter<UsersAdapter.UserViewHol
             bgResId = R.drawable.circle_red;
         }
         Drawable background = ContextCompat.getDrawable(holder.itemView.getContext(), bgResId);
-        holder.onLineStatus.setBackground(background);
+        holder.onlineStatus.setBackground(background);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 if (onUserClickListener != null) {
                     onUserClickListener.onUserClick(user);
                 }
             }
         });
-
     }
 
     @Override
@@ -65,18 +64,19 @@ public class UsersAdapter extends  RecyclerView.Adapter<UsersAdapter.UserViewHol
     }
 
     interface OnUserClickListener {
+
         void onUserClick(User user);
     }
 
     static class UserViewHolder extends RecyclerView.ViewHolder {
 
         private TextView textViewUserInfo;
-        private View onLineStatus;
+        private View onlineStatus;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             textViewUserInfo = itemView.findViewById(R.id.textViewUserInfo);
-            onLineStatus = itemView.findViewById(R.id.viewStatus);
+            onlineStatus = itemView.findViewById(R.id.onlineStatus);
         }
     }
 }

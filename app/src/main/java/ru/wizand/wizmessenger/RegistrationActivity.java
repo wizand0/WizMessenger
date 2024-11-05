@@ -19,7 +19,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText editTextEmail;
     private EditText editTextPassword;
     private EditText editTextName;
-    private EditText editTextSurname;
+    private EditText editTextLastName;
     private Button buttonSignUp;
 
     private RegistrationViewModel viewModel;
@@ -33,17 +33,15 @@ public class RegistrationActivity extends AppCompatActivity {
         observeViewModel();
         buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 String email = getTrimmedValue(editTextEmail);
                 String password = getTrimmedValue(editTextPassword);
                 String name = getTrimmedValue(editTextName);
-                String surname = getTrimmedValue(editTextSurname);
+                String lastName = getTrimmedValue(editTextLastName);
 
-                // sing up
-                viewModel.signUp(email, password, name, surname);
+                viewModel.signUp(email, password, name, lastName);
             }
         });
-
     }
 
     private void observeViewModel() {
@@ -59,7 +57,7 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onChanged(FirebaseUser firebaseUser) {
                 if (firebaseUser != null) {
-                    Intent intent = UsersActivity.newIntent(RegistrationActivity.this,firebaseUser.getUid());
+                    Intent intent = UsersActivity.newIntent(RegistrationActivity.this, firebaseUser.getUid());
                     startActivity(intent);
                     finish();
                 }
@@ -67,11 +65,11 @@ public class RegistrationActivity extends AppCompatActivity {
         });
     }
 
-    private void initViews(){
+    private void initViews() {
         editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextName = findViewById(R.id.editTextName);
-        editTextSurname = findViewById(R.id.editTextSurname);
+        editTextLastName = findViewById(R.id.editTextSurname);
         buttonSignUp = findViewById(R.id.buttonSignUp);
     }
 
@@ -81,6 +79,5 @@ public class RegistrationActivity extends AppCompatActivity {
 
     public static Intent newIntent(Context context) {
         return new Intent(context, RegistrationActivity.class);
-
     }
 }

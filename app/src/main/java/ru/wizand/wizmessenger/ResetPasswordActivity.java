@@ -32,10 +32,8 @@ public class ResetPasswordActivity extends AppCompatActivity {
         editTextEmail.setText(email);
         buttonResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 String email = editTextEmail.getText().toString().trim();
-
-                // reset password
                 viewModel.resetPassword(email);
             }
         });
@@ -44,24 +42,24 @@ public class ResetPasswordActivity extends AppCompatActivity {
     private void observeViewModel() {
         viewModel.getError().observe(this, new Observer<String>() {
             @Override
-            public void onChanged(String error) {
-                if (error != null) {
-                    Toast.makeText(ResetPasswordActivity.this, error,Toast.LENGTH_SHORT).show();
+            public void onChanged(String errorMessage) {
+                if (errorMessage != null) {
+                    Toast.makeText(ResetPasswordActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        viewModel.getSuccess().observe(this, new Observer<Boolean>() {
+        viewModel.isSuccess().observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean success) {
                 if (success) {
-                    Toast.makeText(ResetPasswordActivity.this, "The reset link has been sent",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ResetPasswordActivity.this, R.string.reset_link_sent, Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
     private void initViews() {
-        editTextEmail = findViewById(R.id.editTextYourEmail);
+        editTextEmail = findViewById(R.id.editTextEmail);
         buttonResetPassword = findViewById(R.id.buttonResetYourPassword);
     }
 
@@ -69,6 +67,5 @@ public class ResetPasswordActivity extends AppCompatActivity {
         Intent intent = new Intent(context, ResetPasswordActivity.class);
         intent.putExtra(EXTRA_EMAIL, email);
         return intent;
-
     }
 }
